@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Adopt an Animal</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #f1f5f9;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* NAVBAR */
+        .custom-navbar {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 18px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #3b82f6, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .navbar .nav-link {
+            color: #475569;
+            margin: 0 14px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .navbar .nav-link:hover {
+            color: #3b82f6;
+        }
+
+        .page-header h2 {
+            font-weight: 700;
+        }
+
+        .animal-card {
+            border-radius: 20px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            transition: 0.3s;
+        }
+
+        .animal-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(59, 130, 246, 0.15);
+        }
+
+        .image-box {
+            height: 230px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+        }
+
+        .image-box img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .btn-adopt {
+            background: linear-gradient(135deg, #60a5fa, #c7d2fe);
+            border: none;
+            border-radius: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ✅ NAVBAR -->
+    <nav class="navbar navbar-expand-lg custom-navbar">
+        <div class="container">
+
+            <a class="navbar-brand" href="#">🐾 Shelter</a>
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+
+                    <li><a class="nav-link" href="home.html">Home</a></li>
+                    <li><a class="nav-link" href="animals_web.html">Animals</a></li>
+                    <li><a class="nav-link" href="donations.html">Donate</a></li>
+                    <li><a class="nav-link" href="userdashboard.html">Dashboard</a></li>
+                    <li><a class="nav-link text-danger" href="dashboard.html">Logout</a></li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <div class="container text-center mt-4">
+
+        <h2>🐾 Animals Looking for a Home</h2>
+        <p class="text-muted">Browse and find your perfect companion</p>
+
+    </div>
+
+    <!-- GRID -->
+    <div class="container mt-4">
+
+        <div class="row g-4">
+
+            <!-- ANIMAL 1 -->
+            <div class="col-md-4">
+                <div class="card animal-card">
+
+                    <div class="image-box">
+                        <img src="images/dog 1.jpg">
+                    </div>
+
+                    <div class="card-body text-center">
+
+                        <h5>Max</h5>
+                        <p>Dog • Labrador</p>
+                        <p>Age: 3 • Male</p>
+
+                        <span class="badge bg-success mb-2">Available</span>
+
+                        <br>
+
+                        <button class="btn btn-outline-primary btn-sm me-2"
+                            onclick="openProfile('Max','Dog','Labrador',3,'Male','Available','dog 1.jpg')">
+                            <i class="bi bi-eye"></i>
+                        </button>
+
+                        <button class="btn btn-adopt btn-sm" onclick="alert('Adoption request submitted!')">
+                            <i class="bi bi-heart"></i> Adopt
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANIMAL 2 -->
+            <div class="col-md-4">
+                <div class="card animal-card">
+
+                    <div class="image-box">
+                        <img src="images/cat 1.jpg">
+                    </div>
+
+                    <div class="card-body text-center">
+
+                        <h5>Luna</h5>
+                        <p>Cat • Persian</p>
+                        <p>Age: 2 • Female</p>
+
+                        <span class="badge bg-primary mb-2">Adopted</span>
+
+                        <br>
+
+                        <button class="btn btn-outline-primary btn-sm me-2"
+                            onclick="openProfile('Luna','Cat','Persian',2,'Female','Adopted','cat 1.jpg')">
+                            <i class="bi bi-eye"></i>
+                        </button>
+
+                        <button class="btn btn-secondary btn-sm" disabled>
+                            Not Available
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANIMAL 3 -->
+            <div class="col-md-4">
+                <div class="card animal-card">
+
+                    <div class="image-box">
+                        <img src="images/dog 2.jpg">
+                    </div>
+
+                    <div class="card-body text-center">
+
+                        <h5>Charlie</h5>
+                        <p>Dog • Beagle</p>
+                        <p>Age: 4 • Male</p>
+
+                        <span class="badge bg-warning mb-2">Under Treatment</span>
+
+                        <br>
+
+                        <button class="btn btn-outline-primary btn-sm me-2"
+                            onclick="openProfile('Charlie','Dog','Beagle',4,'Male','Under Treatment','dog 2.jpg')">
+                            <i class="bi bi-eye"></i>
+                        </button>
+
+                        <button class="btn btn-secondary btn-sm" disabled>
+                            Not Available
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        // PROFILE NAVIGATION
+        function openProfile(name, species, breed, age, gender, status, image) {
+
+            const url = `animal_profile.html?name=${name}
+&species=${species}
+&breed=${breed}
+&age=${age}
+&gender=${gender}
+&status=${status}
+&image=${image}`;
+
+            window.location.href = url;
+
+        }
+
+        // LOGOUT
+        function logout() {
+            window.location.href = "user_home.html";
+        }
+
+    </script>
+
+</body>
+
+</html>

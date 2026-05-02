@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Donate</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #f1f5f9;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* NAVBAR */
+        .custom-navbar {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 18px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #3b82f6, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .navbar .nav-link {
+            color: #475569;
+            margin: 0 14px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .navbar .nav-link:hover {
+            color: #3b82f6;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #60a5fa, #c7d2fe);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 20px;
+        }
+
+        .donation-card {
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-control {
+            border-radius: 12px;
+            padding: 10px;
+        }
+
+        .btn-donate {
+            background: linear-gradient(135deg, #60a5fa, #c7d2fe);
+            border: none;
+            border-radius: 25px;
+            padding: 10px;
+            transition: 0.3s;
+        }
+
+        .btn-donate:hover {
+            transform: scale(1.05);
+        }
+
+        .info-box {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <!-- ✅ NAVBAR -->
+    <nav class="navbar navbar-expand-lg custom-navbar">
+        <div class="container">
+
+            <a class="navbar-brand" href="#">🐾 Shelter</a>
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+
+                    <li><a class="nav-link" href="home.html">Home</a></li>
+                    <li><a class="nav-link" href="animals_web.html">Animals</a></li>
+                    <li><a class="nav-link" href="donations.html">Donate</a></li>
+                    <li><a class="nav-link" href="userdashboard.html">Dashboard</a></li>
+                    <li><a class="nav-link text-danger" href="dashboard.html">Logout</a></li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    </div>
+    </nav>
+
+    <div class="container mt-4">
+
+        <!-- HERO -->
+        <div class="hero mb-5">
+            <h2>❤️ Support Our Shelter</h2>
+            <p>Your donation helps us provide food, care, and medical support</p>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- IMAGE -->
+            <div class="col-md-6">
+                <img src="images/donation.png" class="img-fluid rounded shadow"
+                    style="height:300px; width:100%; object-fit:cover;">
+            </div>
+
+            <!-- FORM -->
+            <div class="col-md-6">
+                <div class="card donation-card p-4">
+
+                    <h4>Make a Donation</h4>
+
+                    <input type="text" id="name" class="form-control mb-3" placeholder="Your Name">
+                    <input type="number" id="amount" class="form-control mb-3" placeholder="Amount ($)">
+
+                    <button class="btn btn-donate w-100" onclick="pay()">
+                        <i class="bi bi-credit-card"></i> Donate
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- INFO -->
+        <div class="row mt-4">
+
+            <div class="col-md-4 info-box">
+                <i class="bi bi-heart fs-2 text-danger"></i>
+                <h5>Save Lives</h5>
+                <p>Your support helps rescue animals</p>
+            </div>
+
+            <div class="col-md-4 info-box">
+                <i class="bi bi-capsule fs-2 text-primary"></i>
+                <h5>Medical Care</h5>
+                <p>Funds go towards treatment</p>
+            </div>
+
+            <div class="col-md-4 info-box">
+                <i class="bi bi-house-heart fs-2 text-success"></i>
+                <h5>Find Homes</h5>
+                <p>Help animals find families</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        function pay() {
+
+            let name = document.getElementById("name").value;
+            let amount = document.getElementById("amount").value;
+
+            if (!name || !amount) {
+                alert("Please fill all fields");
+                return;
+            }
+
+            // ✅ Fake success
+            alert(`Thank you ${name}! ❤️\nDonation of $${amount} received.`);
+
+            // optional clear
+            document.getElementById("name").value = "";
+            document.getElementById("amount").value = "";
+        }
+
+        // LOGOUT
+        function logout() {
+            window.location.href = "user_home.html";
+        }
+
+    </script>
+
+</body>
+
+</html>

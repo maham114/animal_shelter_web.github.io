@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            background: #f4f6f9;
+        }
+
+        .dark-mode {
+            background: #1e1e2f;
+            color: white;
+        }
+
+        .card {
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .dashboard-card {
+            color: white;
+        }
+
+        .dashboard-hero {
+            height: 400px;
+            background:
+                linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)),
+                url("images/dashboard-bg.png") center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .hero-overlay {
+            padding: 20px 30px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="d-flex">
+
+        <!-- SIDEBAR -->
+        <div style="width:250px; background:#111; color:white; min-height:100vh;">
+            <h4 class="p-3">🐾 Shelter</h4>
+            <ul class="nav flex-column">
+                <li><a href="dashboard.html" class="nav-link text-white">Dashboard</a></li>
+                <li><a href="animals.html" class="nav-link text-white">Animals</a></li>
+                <li><a href="inventory.html" class="nav-link text-white">Inventory</a></li>
+                <li><a href="adoptions.html" class="nav-link text-white">Adoptions</a></li>
+                <li><a href="adopters.html" class="nav-link text-white">Adopters</a></li>
+                <li><a href="donation.html" class="nav-link text-white">Donations</a></li>
+                <li><a href="medical.html" class="nav-link text-white">Medical</a></li>
+                <li><a href="home.html" class="nav-link text-danger">Logout</a></li>
+            </ul>
+        </div>
+        <!-- MAIN -->
+        <div class="w-100">
+
+            <!-- HEADER -->
+            <div class="bg-white p-3 shadow d-flex justify-content-between">
+                <h5>Admin Panel</h5>
+                <span>Welcome Admin 👋</span>
+            </div>
+
+            <!-- HERO -->
+            <div class="dashboard-hero mb-4">
+                <div class="hero-overlay">
+                    <h1>Welcome Admin 👋</h1>
+                    <h4>Manage animals, adoptions, and system activity</h4>
+                </div>
+            </div>
+
+            <div class="container mt-4">
+
+                <!-- DARK MODE -->
+                <div class="text-end mb-3">
+                    <button class="btn btn-dark" onclick="toggleDark()">🌙 Toggle Mode</button>
+                </div>
+
+                <!-- CARDS -->
+                <div class="row g-4">
+
+                    <div class="col-md-3">
+                        <div class="card dashboard-card p-3" style="background:#4facfe;">
+                            <h6>Total Animals</h6>
+                            <h2>25</h2>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card dashboard-card p-3" style="background:#43e97b;">
+                            <h6>Adoptions</h6>
+                            <h2>12</h2>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card dashboard-card p-3" style="background:#fa709a;">
+                            <h6>Donations</h6>
+                            <h2>$850</h2>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card dashboard-card p-3" style="background:#f83600;">
+                            <h6>Medical</h6>
+                            <h2>9</h2>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ALERTS -->
+                <div class="alert alert-warning mt-4">
+                    💉 5 animals are not vaccinated!
+                </div>
+
+                <div class="alert alert-danger">
+                    ⚠ 3 animals need treatment!
+                </div>
+
+                <!-- CHARTS -->
+                <div class="row mt-5">
+
+                    <div class="col-md-6">
+                        <div class="card p-3">
+                            <h5>📈 Monthly Donations</h5>
+                            <canvas id="donationChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card p-3">
+                            <h5>🐶 Animals by Species</h5>
+                            <canvas id="speciesChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mt-4">
+                        <div class="card p-3">
+                            <h5>💊 Medical Cases</h5>
+                            <canvas id="medicalChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mt-4">
+                        <div class="card p-3">
+                            <h5>🐾 Adoption Status</h5>
+                            <canvas id="adoptionChart"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        // DARK MODE
+        function toggleDark() {
+            document.body.classList.toggle("dark-mode");
+        }
+
+        // CHART DATA (DUMMY)
+
+        new Chart(document.getElementById("donationChart"), {
+            type: "line",
+            data: {
+                labels: ["Jan", "Feb", "Mar", "Apr"],
+                datasets: [{
+                    data: [200, 400, 300, 500]
+                }]
+            }
+        });
+
+        new Chart(document.getElementById("speciesChart"), {
+            type: "pie",
+            data: {
+                labels: ["Dog", "Cat", "Bird"],
+                datasets: [{ data: [15, 8, 2] }]
+            }
+        });
+
+        new Chart(document.getElementById("medicalChart"), {
+            type: "bar",
+            data: {
+                labels: ["Jan", "Feb", "Mar"],
+                datasets: [{ data: [5, 7, 4] }]
+            }
+        });
+
+        new Chart(document.getElementById("adoptionChart"), {
+            type: "doughnut",
+            data: {
+                labels: ["Approved", "Pending", "Rejected"],
+                datasets: [{ data: [10, 5, 3] }]
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

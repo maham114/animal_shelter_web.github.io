@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>User Dashboard</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #f1f5f9;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* NAVBAR */
+        .custom-navbar {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 18px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #3b82f6, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .navbar .nav-link {
+            color: #475569;
+            margin: 0 14px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .navbar .nav-link:hover {
+            color: #3b82f6;
+        }
+
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .table thead {
+            background: #0f172a;
+            color: white;
+        }
+
+        .badge {
+            border-radius: 20px;
+            padding: 6px 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ✅ NAVBAR -->
+    <nav class="navbar navbar-expand-lg custom-navbar">
+        <div class="container">
+
+            <a class="navbar-brand" href="#">🐾 Shelter</a>
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+
+                    <li><a class="nav-link" href="home.html">Home</a></li>
+                    <li><a class="nav-link" href="animals_web.html">Animals</a></li>
+                    <li><a class="nav-link" href="donations.html">Donate</a></li>
+                    <li><a class="nav-link" href="userdashboard.html">Dashboard</a></li>
+                    <li><a class="nav-link text-danger" href="dashboard.html">Logout</a></li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+
+        <!-- =========================
+     ADOPTION SECTION
+========================= -->
+
+        <h3 class="mb-4 fw-bold">🐾 My Adoption Requests</h3>
+
+        <div class="card mb-5">
+            <div class="card-body table-responsive">
+
+                <table class="table table-hover">
+
+                    <thead>
+                        <tr>
+                            <th>Animal</th>
+                            <th>Species</th>
+                            <th>Request Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Max</td>
+                            <td>Dog</td>
+                            <td>2026-05-01</td>
+                            <td>
+                                <span class="badge bg-warning">Pending</span>
+                                <br>
+                                <button class="btn btn-sm btn-outline-danger mt-1" onclick="alert('Request cancelled')">
+                                    <i class="bi bi-x-circle"></i> Cancel
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Luna</td>
+                            <td>Cat</td>
+                            <td>2026-04-20</td>
+                            <td>
+                                <span class="badge bg-success">Approved</span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Charlie</td>
+                            <td>Dog</td>
+                            <td>2026-04-10</td>
+                            <td>
+                                <span class="badge bg-danger">Rejected</span>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+
+        <!-- =========================
+     DONATION SUMMARY
+========================= -->
+
+        <div class="row mb-4">
+
+            <div class="col-md-6">
+                <div class="card text-white text-center" style="background:linear-gradient(135deg,#60a5fa,#c7d2fe);">
+                    <div class="card-body">
+                        <h6>Total Donations</h6>
+                        <h3>5</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card text-white text-center" style="background:linear-gradient(135deg,#fbcfe8,#93c5fd);">
+                    <div class="card-body">
+                        <h6>Total Amount Donated</h6>
+                        <h3>$850</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- =========================
+     DONATION HISTORY
+========================= -->
+
+        <h3 class="mb-4 fw-bold">💰 My Donations</h3>
+
+        <div class="card">
+            <div class="card-body table-responsive">
+
+                <table class="table table-hover">
+
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                            <th>Method</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Maham Faisal</td>
+                            <td>$200</td>
+                            <td>2026-05-01</td>
+                            <td><span class="badge bg-primary">Card</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>Maham Faisal</td>
+                            <td>$150</td>
+                            <td>2026-04-15</td>
+                            <td><span class="badge bg-primary">Cash</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>Maham Faisal</td>
+                            <td>$500</td>
+                            <td>2026-03-20</td>
+                            <td><span class="badge bg-primary">Bank</span></td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+        // LOGOUT
+        function logout() {
+            window.location.href = "home.html";
+        }
+
+    </script>
+
+</body>
+
+</html>
